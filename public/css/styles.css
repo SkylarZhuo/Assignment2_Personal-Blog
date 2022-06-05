@@ -47,6 +47,19 @@
 	font-size: 12px;
   color: #fff;
 }
+/* ====== About page ====== */
+.about{
+  text-align: center;
+}
+
+.about h1{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-bottom: 1.5rem;
+}
+.about p{
+  font-family:'Times New Roman', Times, serif;
+  font-size: 2rem;
+}
 
 /* ====== Contact page ======*/
 .contact{
