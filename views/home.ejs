@@ -1,23 +1,32 @@
 <%- include("partials/header") -%>
 
 <div class="box" id="heading">
-  <h1> <%= Today%></h1>
+  <h1><%= Today%></h1>
 </div>
 
-<h1>Home</h1>
-<p><%= startingContent%></p>
+<div class="home">
+  <h1>What's new today!👋</h1>
 
-<%  posts.forEach(function(post){ %>
-
-  <h1><%=post.title%></h1>
-  <p>
-    <%= post.content %>
-  <a href="/posts/<%=post._id%>">Read More</a>
+  <p class="newpost">
+    <%= startingContent%><a href="/compose"
+      ><i class="fa-brands fa-blogger"></i>Add a New Post!<i
+        class="fa-brands fa-blogger"
+      ></i
+    ></a>
   </p>
 
+  <hr />
+
+  <% posts.forEach(function(post){ %>
+
+  <h1><%=post.title%></h1>
+
+  <p>
+    <%=post.content%>
+    <a href="/posts/<%=post._id%>">Read More</a>
+  </p>
 
   <% }) %>
-
-<a href="/compose"><h3>Add a New Post!</h3></a>
+</div>
 
 <%- include("partials/footer") -%>

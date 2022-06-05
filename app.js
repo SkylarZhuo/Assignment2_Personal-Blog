@@ -9,7 +9,7 @@ const mongoose = require('mongoose');
 
 // let posts= [];
 const date = require(__dirname+"/date.js");
-const homeStartingContent = "Lacus vel facilisis volutpat est velit egestas dui id ornare. ";
+const homeStartingContent = "Add some new blogs to record anything you want!   ";
 const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
@@ -34,13 +34,13 @@ const Post = mongoose.model("Post",postSchema);
 //Mongoose Document--Default Blogs shown on home page
 const blog1 = new Post({
   title:"What I learn today -- EJS Template",
-  content:"What is the 'E' for? 'Embedded?' Could be. How about 'Effective,' 'Elegant,' or just 'Easy'? EJS is a simple templating language that lets you generate HTML markup with plain JavaScript. No religiousness about how to organize things. No reinvention of iteration and control-flow. It's just plain JavaScript."
+  content:" EJS is a simple templating language that lets you generate HTML markup with plain JavaScript. No religiousness about how to organize things. No reinvention of iteration and control-flow. It's just plain JavaScript."
 });
 
 const blog2 = new Post({
   title:"What is a Web App?",
   content:"A web application is software developed with a specific set of technologies, and it works over the internet. It is an application you use on your mobile, tablet, desktop, or laptop without downloading anything. "
-  +"The web app development process involves using client-side and server-side programming to create a unified platform. The client and server-side portals communicate with each other via HTTPS requests."
+  
 });
 
 const defaultBlogs = [blog1,blog2];
