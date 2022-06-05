@@ -1,5 +1,5 @@
 #heading {
-    background-color: #A683E3;
+    background-color: #CDC2AE;
     text-align: center;
   }
 
@@ -34,7 +34,8 @@
 }
 
 .footer {
-	position: absolute;
+	/* position: absolute; */
+  padding-top: 0.3rem;
 	text-align: center;
 	bottom: 0;
 	width: 100%;
