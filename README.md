@@ -16,7 +16,16 @@
 
 <h1>Objective of My Web App</h1>
 <h3>Add a new blog</h3>
+When User click "Add a New Post" at the top, it will render to compose page. In the compose page, user can add new title and content
+of the new blog, when user clicks "publish", the new post will be added into database. It will redirect to home page, which will show
+the new post appending to previous posts.
+If the blog content is long, the home page just show part of it. User can click "Read More" to read the whole page.
 
-<h3>View the detail of the blog</h3>
+<h3>View the detail of the blog.</h3>
+When you click "Read More", it will render to the page of this posts by it's ObjectId. The detailed pages will show the complete content
+of the blog.
 
+<h3>Delete the blog.</h3>
+When you click "Delete" button below the post, it will be deleted and redirect to the home page, which will show the blogs without this 
+blog.
 
