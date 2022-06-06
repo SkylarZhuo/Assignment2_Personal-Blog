@@ -9,8 +9,6 @@ const mongoose = require('mongoose');
 
 const date = require(__dirname+"/date.js");
 const homeStartingContent = "Add some new blogs to record anything you want➡   ";
-const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
-const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
 const app = express();
 
@@ -55,7 +53,8 @@ const blog1 = new Post({
 const blog2 = new Post({
   title:"What is a Web App?",
   content:"A web application is software developed with a specific set of technologies, and it works over the internet. It is an application you use on your mobile, tablet, desktop, or laptop without downloading anything. "
-  
+  +"How can web apps get more powerful? The kinds of work that you can do on a webpage has evolved significantly in the past decade. As our computers get faster, and browsers optimize JavaScript performance, we’ve gone from reading email and writing text documents to doing graphic design and making music."
+  +"But native apps have the advantage of compiled, close-to-the-metal code. If you write your app in Java for Android or Swift for iOS, you can easily outstrip nearly any JavaScript-based app in performance. If you write parts of your app using C or C++, as many game developers do, for instance, you can often go even faster."
 });
 
 const defaultBlogs = [blog1,blog2];
@@ -92,15 +91,11 @@ app.get("/",function(req,res){
 
 
 app.get("/about",function(req,res){
-  res.render("about",{
-    aboutContent:aboutContent
-  });
+  res.render("about");
 })
 
 app.get("/contact",function(req,res){
-  res.render("contact",{
-    contactContent:contactContent
-  });
+  res.render("contact");
 })
 
 app.get("/compose",function(req,res){
@@ -133,16 +128,6 @@ app.post("/compose",function(req,res){[
 app.get("/posts/:postId",function(req,res){
   // const requestedTitle = _.lowerCase(req.params.postName);
   const requestedPostId = req.params.postId;
-
-  // posts.forEach(function(post){
-  //   const storedTitle = _.lowerCase(post.title);
-  //   if(storedTitle === requestedTitle){
-  //     res.render("post",{
-  //       title: post.title,
-  //       content: post.content
-  //     });
-  //   }
-  // });
   Post.findOne({_id: requestedPostId}, function(err, post){
     res.render("post", {
       title: post.title,
@@ -151,6 +136,19 @@ app.get("/posts/:postId",function(req,res){
   });
 });
 
+
+app.post("/delete", function (req, res) { 
+
+  // const postId = req.params.postId;
+  const postId = req.body.postId;
+  Post.findByIdAndRemove(postId, function (err) {
+    if (!err) {
+      res.redirect("/");
+    } else {
+      console.log(err);
+    }
+  });
+});
 
 postsRouter.get("/",function(req,res){
   res.send("<h1>the posts</h1>");
@@ -180,9 +178,6 @@ postsRouter.get("/",function(req,res){
 
 //===================== Error Handler =======================
 app.get('/404', function(req, res, next){
-  // trigger a 404 since no other middleware
-  // will match /404 after this one, and we're not
-  // responding here
   next();
 });
 
@@ -197,16 +192,6 @@ app.get('/500', function(req, res, next){
   // trigger a generic (500) error
   next(new Error('keyboard cat!'));
 });
-
-// Error handlers
-
-// Since this is the last non-error-handling
-// middleware use()d, we assume 404, as nothing else
-// responded.
-
-// $ curl http://localhost:3000/notfound
-// $ curl http://localhost:3000/notfound -H "Accept: application/json"
-// $ curl http://localhost:3000/notfound -H "Accept: text/plain"
 
 app.use(function(req, res, next){
   res.status(404);
@@ -224,18 +209,6 @@ app.use(function(req, res, next){
   })
 });
 
-// error-handling middleware, take the same form
-// as regular middleware, however they require an
-// arity of 4, aka the signature (err, req, res, next).
-// when connect has an error, it will invoke ONLY error-handling
-// middleware.
-
-// If we were to next() here any remaining non-error-handling
-// middleware would then be executed, or if we next(err) to
-// continue passing the error, only error-handling middleware
-// would remain being executed, however here
-// we simply respond with an error page.
-
 app.use(function(err, req, res, next){
   // we may use properties of the error object
   // here and next(err) appropriately, or if
@@ -244,10 +217,9 @@ app.use(function(err, req, res, next){
   res.render('500', { error: err });
 });
 
-let port = process.env.PORT;
-if(port == null || port == ""){
-  port = 3000;
-}
-app.listen(port, function() {
-  console.log("Server started on port 3000");
+
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`The app is running on port ${PORT}`);
 });

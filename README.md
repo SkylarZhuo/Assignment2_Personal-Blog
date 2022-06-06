@@ -1,5 +1,6 @@
 # Assignment2_Personal-Blog
-This is a repo of assignment2 for CS5610 Web Development
+-Name : Zhuohang(Skylar) Li
+-Description: This is a repo of assignment2 for CS5610 Web Development
 
 <h1>
     Requirement
@@ -13,4 +14,9 @@ This is a repo of assignment2 for CS5610 Web Development
     <li>Use templates for pages with dynamic content</li>
 </ul>
 
-<h1>Objective of my app</h1>
+<h1>Objective of My Web App</h1>
+<h3>Add a new blog</h3>
+
+<h3>View the detail of the blog</h3>
+
+
