@@ -7,13 +7,17 @@ const _ = require("lodash");
 const mongoose = require('mongoose');
 
 
-// let posts= [];
 const date = require(__dirname+"/date.js");
 const homeStartingContent = "Add some new blogs to record anything you want➡   ";
 const aboutContent = "Hac habitasse platea dictumst vestibulum rhoncus est pellentesque. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper. Non diam phasellus vestibulum lorem sed. Platea dictumst quisque sagittis purus sit. Egestas sed sed risus pretium quam vulputate dignissim suspendisse. Mauris in aliquam sem fringilla. Semper risus in hendrerit gravida rutrum quisque non tellus orci. Amet massa vitae tortor condimentum lacinia quis vel eros. Enim ut tellus elementum sagittis vitae. Mauris ultrices eros in cursus turpis massa tincidunt dui.";
 const contactContent = "Scelerisque eleifend donec pretium vulputate sapien. Rhoncus urna neque viverra justo nec ultrices. Arcu dui vivamus arcu felis bibendum. Consectetur adipiscing elit duis tristique. Risus viverra adipiscing at in tellus integer feugiat. Sapien nec sagittis aliquam malesuada bibendum arcu vitae. Consequat interdum varius sit amet mattis. Iaculis nunc sed augue lacus. Interdum posuere lorem ipsum dolor sit amet consectetur adipiscing elit. Pulvinar elementum integer enim neque. Ultrices gravida dictum fusce ut placerat orci nulla. Mauris in aliquam sem fringilla ut morbi tincidunt. Tortor posuere ac ut consequat semper viverra nam libero.";
 
 const app = express();
+
+//Express router
+const postsRouter = require('./routes/posts');
+app.use('/posts',postsRouter);
+
 //Connect to MongoDB-->Local Database
 mongoose.connect("mongodb://localhost:27017/blogDB", {useNewUrlParser: true});
 
@@ -148,9 +152,9 @@ app.get("/posts/:postId",function(req,res){
 });
 
 
-// postsRouter.get("/",function(req,res){
-//   res.send("<h1>the posts</h1>");
-// })
+postsRouter.get("/",function(req,res){
+  res.send("<h1>the posts</h1>");
+})
 
 //Delete One
 // Post.deleteOne({title:""},function(err){
@@ -174,7 +178,76 @@ app.get("/posts/:postId",function(req,res){
 
 // })
 
+//===================== Error Handler =======================
+app.get('/404', function(req, res, next){
+  // trigger a 404 since no other middleware
+  // will match /404 after this one, and we're not
+  // responding here
+  next();
+});
 
-app.listen(3000, function() {
+app.get('/403', function(req, res, next){
+  // trigger a 403 error
+  var err = new Error('not allowed!');
+  err.status = 403;
+  next(err);
+});
+
+app.get('/500', function(req, res, next){
+  // trigger a generic (500) error
+  next(new Error('keyboard cat!'));
+});
+
+// Error handlers
+
+// Since this is the last non-error-handling
+// middleware use()d, we assume 404, as nothing else
+// responded.
+
+// $ curl http://localhost:3000/notfound
+// $ curl http://localhost:3000/notfound -H "Accept: application/json"
+// $ curl http://localhost:3000/notfound -H "Accept: text/plain"
+
+app.use(function(req, res, next){
+  res.status(404);
+
+  res.format({
+    html: function () {
+      res.render('404', { url: req.url })
+    },
+    json: function () {
+      res.json({ error: 'Not found' })
+    },
+    default: function () {
+      res.type('txt').send('Not found')
+    }
+  })
+});
+
+// error-handling middleware, take the same form
+// as regular middleware, however they require an
+// arity of 4, aka the signature (err, req, res, next).
+// when connect has an error, it will invoke ONLY error-handling
+// middleware.
+
+// If we were to next() here any remaining non-error-handling
+// middleware would then be executed, or if we next(err) to
+// continue passing the error, only error-handling middleware
+// would remain being executed, however here
+// we simply respond with an error page.
+
+app.use(function(err, req, res, next){
+  // we may use properties of the error object
+  // here and next(err) appropriately, or if
+  // we possibly recovered from the error, simply next().
+  res.status(err.status || 500);
+  res.render('500', { error: err });
+});
+
+let port = process.env.PORT;
+if(port == null || port == ""){
+  port = 3000;
+}
+app.listen(port, function() {
   console.log("Server started on port 3000");
 });
