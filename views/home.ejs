@@ -21,14 +21,16 @@
 
   <h1><%=post.title%></h1>
   <form action="/delete" method="post">
-    <button type="submit" class="btn btn-outline-dark btn-md delete-btn">Delete</button>
-    <input type="hidden" name="postId" value="<%=post._id%>">
+    <button type="submit" class="btn btn-outline-dark btn-md delete-btn">
+      Delete
+    </button>
+    <input type="hidden" name="postId" value="<%=post._id%>" />
   </form>
   <p>
     <%=post.content.substring(0,100)+"......"%>
     <a href="/posts/<%=post._id%>">Read More</a>
+    <!-- <a href="/delete/<%=post._id%>">Delete the Blog</a> -->
   </p>
-  
 
   <% }) %>
 </div>
