@@ -20,7 +20,7 @@ When User click "Add a New Post" at the top, it will render to compose page. In 
 of the new blog, when user clicks "publish", the new post will be added into database. It will redirect to home page, which will show
 the new post appending to previous posts.
 If the blog content is long, the home page just show part of it. User can click "Read More" to read the whole page.
-
+<img src="/public/images/demo_1.png"></img>
 <h3>View the detail of the blog.</h3>
 When you click "Read More", it will render to the page of this posts by it's ObjectId. The detailed pages will show the complete content
 of the blog.

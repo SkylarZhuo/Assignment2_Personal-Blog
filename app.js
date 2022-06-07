@@ -12,14 +12,15 @@ const homeStartingContent =
 
 const app = express();
 const { check, validationResult } = require("express-validator");
-//Express router
-// const postsRouter = require('./routes/posts');
-// app.use('/posts',postsRouter);
+
 
 //Connect to MongoDB-->Local Database
-mongoose.connect("mongodb://localhost:27017/blogDB", { useNewUrlParser: true });
+//mongoose.connect("mongodb://localhost:27017/blogDB", { useNewUrlParser: true });
 
 //Connect to MongoDB-->MongoDB Atlas
+require('dotenv').config();
+const uri = process.env.uri;
+mongoose.connect(uri,{useNewUrlParser:true});
 
 app.set("view engine", "ejs");
 
@@ -32,6 +33,7 @@ app.use(express.json());
 app.use(require("./routes/posts"));
 
 const Post = require("./models/postModel");
+
 //Mongoose Document--Default Blogs shown on home page
 const blog1 = new Post({
   title: "What I learn today -- EJS Template",
