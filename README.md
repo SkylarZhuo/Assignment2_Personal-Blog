@@ -16,12 +16,12 @@
 
 
 <h2>2.Development Tools</h2>
--CSS/Bootstrap
--Javascript
--Express.js framework
--Node.js
--EJS template
--MongoDB database
+- CSS/Bootstrap
+- Javascript
+- Express.js framework
+- Node.js
+- EJS template
+- MongoDB database
 
 
 <h2>3.Objective of My Web App</h2>
@@ -32,18 +32,22 @@ the new post appending to previous posts.
 If the blog content is long, the home page just show part of it. User can click "Read More" to read the whole page.
 <img src="/public/images/demo_1.png"></img>
 <img src="/public/images/demo_2.png"></img>
+
+<hr>
 <h3>View the detail of the blog.</h3>
 When you click "Read More", it will render to the page of this posts by it's ObjectId. The detailed pages will show the complete content
 of the blog.
 <img src="/public/images/demo_3.png"></img>
 <img src="/public/images/demo_4.png"></img>
 
+<hr>
 <h3>Delete the blog.</h3>
 When you click "Delete" button below the post, it will be deleted and redirect to the home page, which will show the blogs without this 
 blog.
 <img src="/public/images/demo_5.png"></img>
 <img src="/public/images/demo_6.png"></img>
 
+<hr>
 <h3>Other page</h3>
 The blog also contain two static web pages--about and contact page;
 <img src="/public/images/about_page.png"></img>
@@ -51,9 +55,9 @@ The blog also contain two static web pages--about and contact page;
 
 
 <h2>4.Setup Instructions</h2>
--run npm i
--run node app.js to start the app
--open webpage of heroku:
+- run npm i
+- run node app.js to start the app
+- open webpage of heroku:
 
 
 <h2>5.Citations</h2>
