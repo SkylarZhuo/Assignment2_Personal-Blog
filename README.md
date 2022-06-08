@@ -58,12 +58,19 @@ The blog also contain two static web pages--about and contact page;
 
 
 <h2>4.Setup Instructions</h2>
-1. run ``` -npm i
-2. run node app.js to start the app
-3. open webpage of heroku:
+<ol>
+    <li>run npm i</li>
+    <li>run node app.js to start the app</li>
+    <li>open webpage of heroku:</li>
+</ol>
 
 
 <h2>5.Citations</h2>
-I follow the tutorial of MDN pages and Udemy webcamp, but all the code are wrote by myself.
-1. https://www.udemy.com/course/the-complete-web-development-bootcamp/
-2. https://www.udemy.com/course/the-complete-web-development-bootcamp/
+ I follow the tutorial of MDN pages and Udemy webcamp, but all the code are wrote by myself.
+<ol>
+    <li>https://www.udemy.com/course/the-complete-web-development-bootcamp/</li>
+    <li>https://www.udemy.com/course/the-complete-web-development-bootcamp/</li>
+
+</ol>
+
+
