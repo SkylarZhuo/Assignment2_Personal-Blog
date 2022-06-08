@@ -73,59 +73,7 @@ app.get("/", function (req, res) {
   });
 });
 
-// app.get("/about",function(req,res){
-//   res.render("about");
-// })
 
-// app.get("/contact",function(req,res){
-//   res.render("contact");
-// })
-
-// app.get("/compose",function(req,res){
-//   res.render("compose");
-// });
-
-//add data validation when adding new post
-// app.post("/compose",function(req,res){
-
-//   const post = new Post({
-//     title:req.body.postTitle,
-//     content:req.body.postBody
-//   });
-//   post.save(function(err){
-//     if(!err){
-//       res.redirect("/");
-//     }
-//   });
-// })
-
-// app.get("/posts/:postId",function(req,res){
-//   // const requestedTitle = _.lowerCase(req.params.postName);
-//   const requestedPostId = req.params.postId;
-//   Post.findOne({_id: requestedPostId}, function(err, post){
-//     res.render("post", {
-//       title: post.title,
-//       content: post.content
-//     });
-//   });
-// });
-
-// app.post("/delete", function (req, res) {
-
-//   // const postId = req.params.postId;
-//   const postId = req.body.postId;
-//   Post.findByIdAndRemove(postId, function (err) {
-//     if (!err) {
-//       res.redirect("/");
-//     } else {
-//       console.log(err);
-//     }
-//   });
-// });
-
-// postsRouter.get("/",function(req,res){
-//   res.send("<h1>the posts</h1>");
-// })
 
 //===================== Error Handler =======================
 app.get("/404", function (req, res, next) {
