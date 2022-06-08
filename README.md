@@ -1,6 +1,6 @@
 # Assignment2_Personal-Blog
--- Name : Zhuohang(Skylar) Li
--- Description: This is a repo of assignment2 for CS5610 Web Development
+1. Name : Zhuohang(Skylar) Li
+2. Description: This is a repo of assignment2 for CS5610 Web Development
 
 <h2>
     1.Requirement
@@ -16,12 +16,15 @@
 
 
 <h2>2.Development Tools</h2>
--- CSS/Bootstrap
--- Javascript
--- Express.js framework
--- Node.js
--- EJS template
--- MongoDB database
+<ul>
+    <li>CSS/Bootstrap</li>
+    <li>Javascript</li>
+    <li>Express.js framework</li>
+    <li>Node.js</li>
+    <li>EJS template</li>
+    <li>MongoDB database</li>
+</ul>
+
 
 
 <h2>3.Objective of My Web App</h2>
@@ -55,12 +58,12 @@ The blog also contain two static web pages--about and contact page;
 
 
 <h2>4.Setup Instructions</h2>
--- run ``` -npm i
--- run node app.js to start the app
--= open webpage of heroku:
+1. run ``` -npm i
+2. run node app.js to start the app
+3. open webpage of heroku:
 
 
 <h2>5.Citations</h2>
 I follow the tutorial of MDN pages and Udemy webcamp, but all the code are wrote by myself.
--- https://www.udemy.com/course/the-complete-web-development-bootcamp/
--- https://www.udemy.com/course/the-complete-web-development-bootcamp/
+1. https://www.udemy.com/course/the-complete-web-development-bootcamp/
+2. https://www.udemy.com/course/the-complete-web-development-bootcamp/
