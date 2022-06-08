@@ -69,7 +69,7 @@ The blog also contain two static web pages--about and contact page;
  I follow the tutorial of MDN pages and Udemy webcamp, but all the code are wrote by myself.
 <ol>
     <li>https://www.udemy.com/course/the-complete-web-development-bootcamp/</li>
-    <li>https://www.udemy.com/course/the-complete-web-development-bootcamp/</li>
+    <li>https://developer.mozilla.org/en-US/docs/Learn/Server-side/Express_Nodejs/Tutorial_local_library_website</li>
 
 </ol>
 
