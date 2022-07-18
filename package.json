@@ -1,0 +1,31 @@
+{
+  "name": "assignment2_personal-blog",
+  "version": "1.0.0",
+  "description": "This is a repo of assignment2 for CS5610 Web Development",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkylarZhuo/Assignment2_Personal-Blog.git"
+  },
+  "author": "Skylar Li",
+  "license": "ISC",
+  "engines": {
+    "node":"16.15.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^16.0.1",
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-validator": "^6.14.1",
+    "lodash": "^4.17.21",
+    "mongoose": "^6.3.5"
+  },
+  "bugs": {
+    "url": "https://github.com/SkylarZhuo/Assignment2_Personal-Blog/issues"
+  },
+  "homepage": "https://github.com/SkylarZhuo/Assignment2_Personal-Blog#readme"
+}

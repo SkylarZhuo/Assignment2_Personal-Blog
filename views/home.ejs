@@ -1,0 +1,38 @@
+<%- include("partials/header") -%>
+
+<div class="box" id="heading">
+  <h1><%= Today%></h1>
+</div>
+
+<div class="home">
+  <h1>What's new today!👋</h1>
+
+  <p class="newpost">
+    <%= startingContent%><a href="/compose"
+      ><i class="fa-brands fa-blogger"></i>Add a New Post!<i
+        class="fa-brands fa-blogger"
+      ></i
+    ></a>
+  </p>
+
+  <hr />
+
+  <% posts.forEach(function(post){ %>
+
+  <h1><%=post.title%></h1>
+  <form action="/delete" method="post">
+    <button type="submit" class="btn btn-outline-dark btn-md delete-btn">
+      Delete
+    </button>
+    <input type="hidden" name="postId" value="<%=post._id%>" />
+  </form>
+  <p>
+    <%=post.content.substring(0,100)+"......"%>
+    <a href="/posts/<%=post._id%>">Read More</a>
+    <!-- <a href="/delete/<%=post._id%>">Delete the Blog</a> -->
+  </p>
+
+  <% }) %>
+</div>
+
+<%- include("partials/footer") -%>
