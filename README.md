@@ -1,6 +1,6 @@
 # Assignment2_Personal-Blog
 1. Name : Zhuohang(Skylar) Li
-2. Description: This is a repo of assignment2 for CS5610 Web Development
+2. Description: This is a repo of assignment2 for CS5610 Web Development. User can add a new post, view the post details and delete the post in this website.
 3. visit here: https://fierce-sea-59435.herokuapp.com/
 
 
